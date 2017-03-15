@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CGI test</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bower_components/kube-bower/dist/css/kube.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <section id="hero">
+        <h1>Movies</h1>
+        <p id="hero-lead">Ülesanne on tehtud selline, et saaks teada kui palju kandidaat teab tänapäevasest veebirakenduste arendusest ASP.NET MVC’st, CSS raamistikest (Foundation 6) ja javascript raamistikest (AngularJS) aga ka koodi arhitektuurist ja inkrementaalsest arendusest. Ühtlasi kui kiiresti on kandidaat suuteline uusi tehnoloogiaid omandama. Mõeldud kodutööna, kuid kandidaat peaks olema valmis oma koodi ka selgitama.</p>
+    </section>
+
+    <main ui-view>
+        <div class="spinner"></div>
+    </main>
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.slim.min.js"></script>
+    <script src="bower_components/kube-bower/dist/js/kube.min.js"></script>
+    <script src="app.js"></script>
+    <script src="core/core.module.js"></script>
+    <script src="core/services/dataService.js"></script>
+    <script src="core/services/filterService.js"></script>
+
+    <script src="listview/movie.module.js"></script>
+    <script src="listview/movie.router.js"></script>
+    <script src="listview/listCtrl.js"></script>
+
+    <script src="detailview/detail.module.js"></script>
+    <script src="detailview/detail.router.js"></script>
+    <script src="detailview/detailCtrl.js"></script>
+
+    <script src="core/directives/stardirective.js"></script>
+    <script src="core/directives/spinnerdirective.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,9 @@
+C:\projects\cgitest\MoviesApp\Movies\bin\Debug\netcoreapp1.1\Movies.deps.json
+C:\projects\cgitest\MoviesApp\Movies\bin\Debug\netcoreapp1.1\Movies.runtimeconfig.json
+C:\projects\cgitest\MoviesApp\Movies\bin\Debug\netcoreapp1.1\Movies.runtimeconfig.dev.json
+C:\projects\cgitest\MoviesApp\Movies\bin\Debug\netcoreapp1.1\Movies.dll
+C:\projects\cgitest\MoviesApp\Movies\obj\Debug\netcoreapp1.1\Movies.csprojResolveAssemblyReference.cache
+C:\projects\cgitest\MoviesApp\Movies\obj\Debug\netcoreapp1.1\Movies.AssemblyInfo.cs
+C:\projects\cgitest\MoviesApp\Movies\bin\Debug\netcoreapp1.1\Movies.pdb
+C:\projects\cgitest\MoviesApp\Movies\obj\Debug\netcoreapp1.1\Movies.dll
+C:\projects\cgitest\MoviesApp\Movies\obj\Debug\netcoreapp1.1\Movies.pdb
