@@ -1,5 +1,33 @@
-Movies/wwwroot/node_modules/
+Movies/wwwroot/movieapp/node_modules/
 
-Movies/wwwroot/app/bower_components/
+# compiled output
+Movies/wwwroot/movieapp/dist
+Movies/wwwroot/movieapp/tmp
+Movies/wwwroot/movieapp/out-tsc
 
+# IDEs and editors
 .vs
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# misc
+Movies/wwwroot/movieapp/.sass-cache
+Movies/wwwroot/movieapp/connect.lock
+Movies/wwwroot/movieapp/coverage
+Movies/wwwroot/movieapp/libpeerconnection.log
+Movies/wwwroot/movieapp/npm-debug.log
+Movies/wwwroot/movieapp/testem.log
+Movies/wwwroot/movieapp/typings
+
+# e2e
+Movies/wwwroot/movieapp/e2e/*.js
+Movies/wwwroot/movieapp/e2e/*.map
+
+# System Files
+Movies/wwwroot/movieapp/.DS_Store
+Movies/wwwroot/movieapp/Thumbs.db

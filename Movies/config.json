@@ -1,0 +1,5 @@
+﻿{
+  "ConnectionStrings": {
+    "MovieContextConnection": "Server=(localdb)\\MSSQLLocalDB;Database=TheMovieDb;Trusted_Connection=true;MultipleActiveResultSets=true;"
+  }
+}
