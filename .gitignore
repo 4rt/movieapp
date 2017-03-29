@@ -1,5 +1,8 @@
 Movies/wwwroot/movieapp/node_modules/
 
+[Bb]in/
+[Oo]bj/
+
 # compiled output
 Movies/wwwroot/movieapp/dist
 Movies/wwwroot/movieapp/tmp
