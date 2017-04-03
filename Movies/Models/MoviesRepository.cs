@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,25 +9,29 @@ namespace Movies.Models
 {
     public class MoviesRepository : IMoviesRepository
     {
-        private MockData _mockData;
-        public MoviesRepository()
+        private DataContext _context;
+
+        public MoviesRepository(DataContext context)
         {
-            _mockData = new MockData();
+            _context = context;
         }
 
         public IEnumerable<Movie> GetAllMovies()
         {
-            return _mockData.Movies;
+            return _context.Movies
+                .Include("Category")
+                .ToList();
         }
 
         public IEnumerable<Category> GetAllCategories()
         {
-            return _mockData.Categories;
+            return _context.Categories.ToList();
         }
 
         public Movie GetMovie(int Id)
         {
-            return _mockData.Movies
+            return _context.Movies
+                .Include("Category")
                 .Where(t => t.Id == Id)
                 .FirstOrDefault();
         }

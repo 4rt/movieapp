@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+body{
+    height: 100vh;
+    background: whitesmoke;
+    color:#303744;
+    overflow: hidden
+}
+
+.pointer{cursor: pointer}
+
+img{max-width: 100%}
+
+.poster{border-radius: 8px}
+
+.btn.btn-link.active, .btn.btn-link:active, .btn.btn-link:focus, .btn.btn-link:hover {
+    color: orangered;
+}

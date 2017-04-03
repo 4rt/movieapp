@@ -1,0 +1,12 @@
+.giant {
+    font-size: 80px;
+    line-height: 80px;
+    letter-spacing: -4px;
+} 
+.fat {
+    font-weight: bold
+}
+
+blockquote{
+    border-color: orangered
+}

@@ -1,4 +1,4 @@
-{
+﻿{
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
     "name": "movieapp"
@@ -19,11 +19,11 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css",
         "../node_modules/normalize.css/normalize.css",
         "../node_modules/spectre.css/dist/spectre.min.css",
         "../node_modules/spectre.css/dist/spectre-exp.min.css",
-        "../node_modules/spectre.css/dist/spectre-icons.min.css"
+        "../node_modules/spectre.css/dist/spectre-icons.min.css",
+        "styles.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

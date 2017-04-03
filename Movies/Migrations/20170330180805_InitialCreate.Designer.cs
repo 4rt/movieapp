@@ -8,7 +8,7 @@ using Movies.Models;
 namespace Movies.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20170321082959_InitialCreate")]
+    [Migration("20170330180805_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,6 +35,8 @@ namespace Movies.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<int>("CategoryId");
+
+                    b.Property<string>("Plot");
 
                     b.Property<string>("Poster");
 

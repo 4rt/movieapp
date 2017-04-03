@@ -10,25 +10,58 @@ using Microsoft.Extensions.Logging;
 using Movies.Models;
 using Newtonsoft.Json.Serialization;
 using Movies.Services;
+using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Cors.Infrastructure;
 
 namespace Movies
 {
     public class Startup
     {
+        private IConfigurationRoot _config;
+        private IHostingEnvironment _env;
+
+        public Startup(IHostingEnvironment env)
+        {
+            _env = env;
+
+            var builder = new ConfigurationBuilder()
+              .SetBasePath(_env.ContentRootPath)
+              .AddJsonFile("config.json")
+              .AddEnvironmentVariables();
+
+            _config = builder.Build();
+        }
+
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton(_config);
 
             //Register and Define a Policy
-            services.AddCors(options =>
+            /*services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
-                    builder => builder.AllowAnyOrigin()
-                    .AllowAnyMethod()
+                    builder => builder                  
                     .AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .AllowAnyOrigin()
                     .AllowCredentials());
+            });*/
+
+            var corsBuilder = new CorsPolicyBuilder();
+            corsBuilder.AllowAnyHeader();
+            corsBuilder.AllowAnyMethod();
+            corsBuilder.AllowAnyOrigin();
+            corsBuilder.AllowCredentials();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll", corsBuilder.Build());
             });
+
+            services.AddDbContext<DataContext>();
+
+            services.AddTransient<MoviesSeedData>();
 
             services.AddMvc().
                 AddJsonOptions(config =>
@@ -39,16 +72,20 @@ namespace Movies
             //add movie repository one per request for repository pattern
             services.AddScoped<IMoviesRepository, MoviesRepository>();
             services.AddScoped<ICategoriesService, CategoriesService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, MoviesSeedData seedData)
         {
-
-            //Apply the Policy
-            app.UseCors("CorsPolicy");
+            app.UseCors("AllowAll");
 
             app.UseMvc();
+
+            seedData.SeedData().Wait();
+
+            //Apply the Policy
+            //app.UseCors("CorsPolicy");
         }
     }
 }

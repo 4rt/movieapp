@@ -1,0 +1,31 @@
+<div *ngIf="movie" class="container grid-960">
+
+      <ul class="breadcrumb">
+            <li class="breadcrumb-item">
+                  <a [routerLink]="['']">Home</a>
+            </li>
+            <li class="breadcrumb-item">
+                  {{movie.title}}
+            </li>
+      </ul>
+
+      <div class="columns col-oneline">
+            <div class="column col-4">
+                  <div class="bg-gray docs-block">
+                        <img class="" [src]="movie.poster" [title]="movie.title">
+                  </div>
+            </div>
+            <div class="column col-8">
+                  <div class="bg-gray docs-block">
+                        <h1 class="giant fat">{{movie.title}}</h1>
+                        {{movie.rating}}
+                        <blockquote>
+                              <p>{{movie.plot}}</p>
+                        </blockquote>
+                        <p><strong>Genre: </strong>{{movie.category.name}}</p>
+                        <p><strong>Year: </strong>{{movie.year}} </p>
+                  </div>
+            </div>
+      </div>
+
+</div>

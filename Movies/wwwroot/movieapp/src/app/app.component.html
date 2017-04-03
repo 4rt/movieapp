@@ -1,3 +1,21 @@
-<h1>
-  {{title}}
-</h1>
+<header class="navbar container grid-960">
+  <div class="column col-12">
+    <section class="navbar">
+      <section class="navbar-section">
+        <a [routerLink]="['']" routerLinkActive="router-link-active" class="btn btn-link">Movies</a>
+        <!--<a [routerLink]="['']" routerLinkActive="router-link-active" class="btn btn-link">Examples</a>-->
+      </section>
+      <section class="navbar-primary">
+        <figure [routerLink]="['']" class="avatar pointer" data-initial="Md"></figure>
+      </section>
+      <section class="navbar-section">
+        <!--<a href="https://twitter.com/spectrecss" class="btn btn-link">Twitter</a>-->
+        <a href="https://github.com/4rt/movieapp" target="_blank" class="btn btn-link">GitHub</a>
+      </section>
+    </section>
+  </div>
+</header>
+
+<main>
+  <router-outlet></router-outlet>
+</main>

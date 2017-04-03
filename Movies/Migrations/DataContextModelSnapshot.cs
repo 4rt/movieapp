@@ -35,6 +35,8 @@ namespace Movies.Migrations
 
                     b.Property<int>("CategoryId");
 
+                    b.Property<string>("Plot");
+
                     b.Property<string>("Poster");
 
                     b.Property<double>("Rating");

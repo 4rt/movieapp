@@ -1,0 +1,11 @@
+aside{
+    height: calc(100vh - 52px);
+    overflow: auto;
+    justify-content: center;
+}
+
+.movie-item{
+    flex-basis: 300px;
+    max-width: 300px;
+    border-radius: 8px;
+}

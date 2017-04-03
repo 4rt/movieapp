@@ -60,24 +60,27 @@ namespace Movies.Models
 
                 var Movie1 = new Movie()
                 {
-                    Title = "Batman",
-                    Year = 1989,
-                    Rating = 5,
-                    Poster = "https://images-na.ssl-images-amazon.com/images/M/MV5BMTYwNjAyODIyMF5BMl5BanBnXkFtZTYwNDMwMDk2._V1_SX300.jpg",
-                    CategoryId = Category1.Id
+                    Title = "The Godfather",
+                    Plot = "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
+                    Year = 1972,
+                    Rating = 9.2,
+                    Poster = "https://images-na.ssl-images-amazon.com/images/M/MV5BZTRmNjQ1ZDYtNDgzMy00OGE0LWE4N2YtNTkzNWQ5ZDhlNGJmL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
+                    CategoryId = Category5.Id
                 };
 
                 var Movie2 = new Movie()
                 {
-                    Title = "Forgetting Sarah Marshall",
-                    Year = 2008,
-                    Rating = 7.2,
-                    Poster = "https://images-na.ssl-images-amazon.com/images/M/MV5BMTYzODgzMjAyM15BMl5BanBnXkFtZTcwMTI3NzI2MQ@@._V1_SX300.jpg",
-                    CategoryId = Category2.Id,
+                    Title = "Rogue One",
+                    Plot = "The Rebel Alliance makes a risky move to steal the plans for the Death Star, setting up the epic saga to follow.",
+                    Year = 2016,
+                    Rating = 8.1,
+                    Poster = "https://images-na.ssl-images-amazon.com/images/M/MV5BMjEwMzMxODIzOV5BMl5BanBnXkFtZTgwNzg3OTAzMDI@._V1_SX300.jpg",
+                    CategoryId = Category1.Id,
                 };
                 var Movie3 = new Movie()
                 {
                     Title = "Ex Machina",
+                    Plot = "A young programmer is selected to participate in a ground-breaking experiment in synthetic intelligence by evaluating the human qualities of a breath-taking humanoid A.I.",
                     CategoryId = Category3.Id,
                     Year = 2015,
                     Rating = 8,
@@ -86,6 +89,7 @@ namespace Movies.Models
                 var Movie4 = new Movie()
                 {
                     Title = "The Lord of the Rings: The Fellowship of the Ring",
+                    Plot = "A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle Earth from the Dark Lord Sauron.",
                     CategoryId = Category1.Id,
                     Year = 2001,
                     Rating = 10,
@@ -93,51 +97,57 @@ namespace Movies.Models
                 };
                 var Movie5 = new Movie()
                 {
-                    Title = "Fast and Furious",
-                    CategoryId = Category5.Id,
-                    Year = 1939,
-                    Rating = 6.2,
-                    Poster = "https://images-na.ssl-images-amazon.com/images/M/MV5BMjAyNTQ1NjA3Ml5BMl5BanBnXkFtZTgwOTIyNjIxMzE@._V1_SX300.jpg"
+                    Title = "Interstellar",
+                    Plot = "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+                    CategoryId = Category3.Id,
+                    Year = 2014,
+                    Rating = 8.6,
+                    Poster = "https://images-na.ssl-images-amazon.com/images/M/MV5BMjIxNTU4MzY4MF5BMl5BanBnXkFtZTgwMzM4ODI3MjE@._V1_SX300.jpg"
                 };
                 var Movie6 = new Movie()
                 {
-                    Title = "Dominator",
-                    CategoryId = Category6.Id,
-                    Year = 2003,
-                    Rating = 4.5,
-                    Poster = "http://ia.media-imdb.com/images/M/MV5BMTUyMjI5NDc1MV5BMl5BanBnXkFtZTcwMjMwMjQyMQ@@._V1_SX300.jpg"
+                    Title = "The Prestige",
+                    Plot = "Two stage magicians engage in competitive one-upmanship in an attempt to create the ultimate stage illusion.",
+                    CategoryId = Category3.Id,
+                    Year = 2006,
+                    Rating = 8.5,
+                    Poster = "https://images-na.ssl-images-amazon.com/images/M/MV5BMjA4NDI0MTIxNF5BMl5BanBnXkFtZTYwNTM0MzY2._V1_SX300.jpg"
                 };
                 var Movie7 = new Movie()
                 {
-                    Title = "Confessions of a Shopaholic",
-                    CategoryId = Category4.Id,
-                    Year = 2009,
-                    Rating = 6,
-                    Poster = "https://images-na.ssl-images-amazon.com/images/M/MV5BMTQ1MzcyMTkwOF5BMl5BanBnXkFtZTcwMDM3MTc5MQ@@._V1_SX300.jpg"
+                    Title = "2001: A Space Odyssey",
+                    Plot = "Humanity finds a mysterious, obviously artificial object buried beneath the Lunar surface and, with the intelligent computer H.A.L. 9000, sets off on a quest.",
+                    CategoryId = Category3.Id,
+                    Year = 1968,
+                    Rating = 8.3,
+                    Poster = "https://images-na.ssl-images-amazon.com/images/M/MV5BMTZkZTBhYmUtMTIzNy00YTViLTg1OWItNGUwMmVlN2FjZTVkXkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_SX300.jpg"
                 };
                 var Movie8 = new Movie()
                 {
-                    Title = "Home Alone",
-                    CategoryId = Category4.Id,
-                    Year = 1990,
-                    Rating = 7.5,
-                    Poster = "https://images-na.ssl-images-amazon.com/images/M/MV5BNmQzYjEzYTQtNzNhZi00NmEwLThiZDMtMWYyNjRmZWY0ZTdkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
+                    Title = "Metropolis",
+                    Plot = "In a futuristic city sharply divided between the working class and the city planners, the son of the city's mastermind falls in love with a working class prophet who predicts the coming of a savior to mediate their differences.",
+                    CategoryId = Category3.Id,
+                    Year = 1927,
+                    Rating = 8.3,
+                    Poster = "https://images-na.ssl-images-amazon.com/images/M/MV5BNDAzNTkyODg1MF5BMl5BanBnXkFtZTgwMDA3NDkwMDE@._V1_SX300.jpg"
                 };
                 var Movie9 = new Movie()
                 {
-                    Title = "Weekend at Bernie's",
-                    CategoryId = Category4.Id,
-                    Year = 1989,
-                    Rating = 6.3,
-                    Poster = "https://images-na.ssl-images-amazon.com/images/M/MV5BMjAwMjU1MTA4N15BMl5BanBnXkFtZTcwNzAxNTc3NA@@._V1_SX300.jpg"
+                    Title = "Beauty and the Beast",
+                    Plot = "A young woman whose father has been imprisoned by a terrifying beast offers herself in his place, unaware that her captor is actually a prince, physically altered by a magic spell.",
+                    CategoryId = Category6.Id,
+                    Year = 1991,
+                    Rating = 8,
+                    Poster = "https://images-na.ssl-images-amazon.com/images/M/MV5BMzE5MDM1NDktY2I0OC00YWI5LTk2NzUtYjczNDczOWQxYjM0XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
                 };
                 var Movie10 = new Movie()
                 {
-                    Title = "James Bond",
-                    CategoryId = Category1.Id,
-                    Year = 1999,
-                    Rating = 5.0,
-                    Poster = "https://images-na.ssl-images-amazon.com/images/M/MV5BOTJlYWYyMTUtNzQ2YS00YmYzLThkMzItOGQ0ZDA0ZWJhNjFkXkEyXkFqcGdeQXVyMjkxNzQ1NDI@._V1_SX300.jpg"
+                    Title = "Ghost in the Shell",
+                    Plot = "A cyborg policewoman and her partner hunt a mysterious and powerful hacker called the Puppet Master.",
+                    CategoryId = Category6.Id,
+                    Year = 1995,
+                    Rating = 8,
+                    Poster = "https://images-na.ssl-images-amazon.com/images/M/MV5BM2FhYzVkMzQtOTVlYS00NTYxLThjNzktMDVhNjU1MDE0ZTc5L2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg"
                 };
 
 
