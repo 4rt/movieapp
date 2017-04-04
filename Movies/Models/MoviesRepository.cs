@@ -25,7 +25,9 @@ namespace Movies.Models
 
         public IEnumerable<Category> GetAllCategories()
         {
-            return _context.Categories.ToList();
+            return _context.Categories
+                .Include("Movies")
+                .ToList();
         }
 
         public Movie GetMovie(int Id)

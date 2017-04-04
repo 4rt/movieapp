@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Movies.Models;
 using Movies.Services;
 using System;
@@ -12,32 +13,39 @@ namespace Movies.Controllers.Api
     {
         private IMoviesRepository _data;
         private ICategoriesService _movieService;
+        private IMapper _mapper;
 
-        public MoviesController(IMoviesRepository repository, ICategoriesService movieservice)
+        public MoviesController(IMoviesRepository repository, ICategoriesService movieservice, IMapper mapper)
         {
             _data = repository;
             _movieService = movieservice;
+            _mapper = mapper;
         }
 
         //handle http GET request on api/movies url (return list of movies)
         [HttpGet("api/movies")]
         public IActionResult Get()
         {
-            return Ok(_data.GetAllMovies());
+            var Movies = _mapper.Map<IEnumerable<MovieDto>>(_data.GetAllMovies());
+
+            return Ok(Movies);
 
         }
 
         [HttpGet("api/movies/categories")]
         public IActionResult GetCategories()
         {
-            return Ok(_data.GetAllCategories());
+            var categoryWithCounter = _mapper.Map<IEnumerable<CategoryDto>>(_data.GetAllCategories());
+
+            return Ok(categoryWithCounter);
         }
 
         //handle http GET request on api/movies/{1} url (return movie by id)
         [HttpGet("api/movies/{id}")]
         public IActionResult GetMovie(int Id)
         {
-            var movie = _data.GetMovie(Id);
+            //var movie = _data.GetMovie(Id);
+            var movie = _mapper.Map<MovieDto>(_data.GetMovie(Id));
 
             return Ok(movie);
         }
@@ -46,7 +54,8 @@ namespace Movies.Controllers.Api
         [HttpGet("/api/movies/categoried/{category}")]
         public IActionResult CategoriedMovie(string category)
         {
-            var categoriedMovie = _movieService.CategoriedMovie(category);
+            //var categoriedMovie = _movieService.CategoriedMovie(category);
+            var categoriedMovie = _mapper.Map<IEnumerable<MovieDto>>(_movieService.CategoriedMovie(category));
 
             return Ok(categoriedMovie);
         }

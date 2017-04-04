@@ -5,6 +5,17 @@
                 <label class="form-label" for="input-example-1">Filter</label>
                 <input class="form-input" [(ngModel)]='listFilter' type="text" id="input-example-1" placeholder="Filter by Title" />
             </div>
+
+            <div *ngIf="categories">
+                <label class="form-label">Genres</label>
+                <div *ngFor="let category of categories" class="form-group">
+                    <label class="form-switch">
+                    <input type="checkbox">
+                    <i class="form-icon"></i> {{category.name}} ({{category.counter}})
+                  </label>
+                </div>
+            </div>
+
         </div>
 
         <aside class="column col-9 col-sm-12">

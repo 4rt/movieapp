@@ -12,7 +12,7 @@ C:\projects\MoviesApp\Movies\bin\Debug\netcoreapp1.1\Movies.runtimeconfig.json
 C:\projects\MoviesApp\Movies\bin\Debug\netcoreapp1.1\Movies.runtimeconfig.dev.json
 C:\projects\MoviesApp\Movies\bin\Debug\netcoreapp1.1\Movies.dll
 C:\projects\MoviesApp\Movies\bin\Debug\netcoreapp1.1\Movies.pdb
-C:\projects\MoviesApp\Movies\obj\Debug\netcoreapp1.1\Movies.csprojResolveAssemblyReference.cache
 C:\projects\MoviesApp\Movies\obj\Debug\netcoreapp1.1\Movies.AssemblyInfo.cs
 C:\projects\MoviesApp\Movies\obj\Debug\netcoreapp1.1\Movies.dll
 C:\projects\MoviesApp\Movies\obj\Debug\netcoreapp1.1\Movies.pdb
+C:\projects\MoviesApp\Movies\obj\Debug\netcoreapp1.1\Movies.csprojResolveAssemblyReference.cache

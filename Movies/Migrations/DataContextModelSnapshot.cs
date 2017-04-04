@@ -55,7 +55,7 @@ namespace Movies.Migrations
             modelBuilder.Entity("Movies.Models.Movie", b =>
                 {
                     b.HasOne("Movies.Models.Category", "Category")
-                        .WithMany()
+                        .WithMany("Movies")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

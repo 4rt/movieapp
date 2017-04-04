@@ -12,6 +12,7 @@ using Newtonsoft.Json.Serialization;
 using Movies.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Cors.Infrastructure;
+using AutoMapper;
 
 namespace Movies
 {
@@ -49,6 +50,17 @@ namespace Movies
                     .AllowCredentials());
             });*/
 
+            var cfg = new MapperConfiguration(conf =>
+            {
+                conf.CreateMap<Category, CategoryDto>().ForMember(
+                    dest => dest.Counter,
+                    opt => opt.MapFrom(src => src.Movies.Count)
+                );
+                conf.CreateMap<Movie, MovieDto>();
+            });
+
+            var mapper = cfg.CreateMapper();
+
             var corsBuilder = new CorsPolicyBuilder();
             corsBuilder.AllowAnyHeader();
             corsBuilder.AllowAnyMethod();
@@ -62,6 +74,8 @@ namespace Movies
             services.AddDbContext<DataContext>();
 
             services.AddTransient<MoviesSeedData>();
+
+            services.AddSingleton(mapper);
 
             services.AddMvc().
                 AddJsonOptions(config =>
@@ -83,6 +97,8 @@ namespace Movies
             app.UseMvc();
 
             seedData.SeedData().Wait();
+
+            app.UseDeveloperExceptionPage();
 
             //Apply the Policy
             //app.UseCors("CorsPolicy");

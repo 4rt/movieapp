@@ -7,6 +7,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 
 import { Movie } from './movie';
+import { Category } from './category';
 
 @Injectable()
 export class DataService {
@@ -18,6 +19,12 @@ export class DataService {
     getMovies(): Observable<Movie[]> {
         return this._http.get(this._apiUrl)
             .map((response: Response) => <Movie[]>response.json())
+            .catch(this.handleError);
+    }
+
+    getCategories(): Observable<Category[]> {
+        return this._http.get(this._apiUrl + 'categories')
+            .map((response: Response) => <Category[]>response.json())
             .catch(this.handleError);
     }
 
