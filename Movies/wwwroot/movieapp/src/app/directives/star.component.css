@@ -4,5 +4,11 @@
 
 .stars{
     font-size: 24px;
-    color: deeppink
+    color:coral
+}
+
+.stars-mock{
+    position: absolute;
+    top: 0;
+    left: 0;
 }

@@ -6,6 +6,8 @@ body{
 
 .pointer{cursor: pointer}
 
+.relative{position: relative}
+
 img{max-width: 100%}
 
 .poster{border-radius: 8px}
