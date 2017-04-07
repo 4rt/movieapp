@@ -10,7 +10,7 @@
                 <label class="form-label">Genres</label>
                 <div *ngFor="let category of categories" class="form-group">
                     <label class="form-switch">
-                    <input type="checkbox">
+                    <input type="checkbox" (click)="toggleSelection(category.name)" (change)="selection.indexOf(categorie) > -1">
                     <i class="form-icon"></i> {{category.name}} ({{category.counter}})
                   </label>
                 </div>

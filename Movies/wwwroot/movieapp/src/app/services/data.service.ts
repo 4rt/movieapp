@@ -34,6 +34,12 @@ export class DataService {
             .catch(this.handleError);
     }
 
+    getMovieByCategory(category: string): Observable<Movie[]> {
+        return this._http.get(this._apiUrl + 'categoried/' + category)
+            .map(this.extractData)
+            .catch(this.handleError);
+    }
+
     private extractData(res: Response) {
         let body = res.json();
         return body;
