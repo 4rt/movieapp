@@ -1,25 +1,32 @@
 <div class="container">
     <div class="columns">
         <div class="column col-3 col-sm-12">
-            <div class="form-group">
-                <label class="form-label" for="input-example-1">Filter</label>
-                <input class="form-input" [(ngModel)]='listFilter' type="text" id="input-example-1" placeholder="Filter by Title" />
-            </div>
+            <div class="panel">
+                <div class="panel-header">
+                    <div class="form-group">
+                        <label class="form-label" for="input-example-1">Filter</label>
+                        <input class="form-input" [(ngModel)]='listFilter' type="text" id="input-example-1" placeholder="Filter by Title" />
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div *ngIf="categories">
+                        <label class="form-label">Genres</label>
+                        <div *ngFor="let category of categories" class="form-group">
+                            <label class="form-switch">
+                        <input type="checkbox" (click)="toggleSelection(category.name)" (change)="selection.indexOf(categorie) > -1">
+                        <i class="form-icon"></i> {{category.name}} ({{category.counter}})
+                    </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
 
-            <div *ngIf="categories">
-                <label class="form-label">Genres</label>
-                <div *ngFor="let category of categories" class="form-group">
-                    <label class="form-switch">
-                    <input type="checkbox" (click)="toggleSelection(category.name)" (change)="selection.indexOf(categorie) > -1">
-                    <i class="form-icon"></i> {{category.name}} ({{category.counter}})
-                  </label>
                 </div>
             </div>
-
         </div>
 
         <aside class="column col-9 col-sm-12">
-            <div class="columns">
+            <div class="columns movie-list">
                 <div *ngFor='let movie of movies | movieFilter:listFilter' class="column movie-item">
                     <a [routerLink]="['/detail', movie.id]">
                         <img class="poster" [src]='movie.poster' [title]='movie.title'>

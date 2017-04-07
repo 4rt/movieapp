@@ -4,6 +4,11 @@ aside{
     justify-content: center;
 }
 
+.movie-list{
+    align-items: center;
+    justify-content: center;
+}
+
 .movie-item{
     flex-basis: 300px;
     max-width: 300px;

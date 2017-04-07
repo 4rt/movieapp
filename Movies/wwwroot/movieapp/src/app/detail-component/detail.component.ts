@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { Subscription } from 'rxjs/Subscription';
@@ -11,7 +11,8 @@ import { DataService } from '../services/data.service';
   styleUrls: ['./detail.component.css']
 })
 export class DetailComponent implements OnInit, OnDestroy {
-
+  @Input() rating: number;
+  starWidth: number;
   movie: Movie;
   errorMessage: string;
 
@@ -32,8 +33,17 @@ export class DetailComponent implements OnInit, OnDestroy {
 
   getMovieById(id: number) {
     this._DataService.getMovieById(id).subscribe(
-      (movie : Movie) => {this.movie = movie},
+      (movie: Movie) => { this.movie = movie },
       error => this.errorMessage = <any>error);
+  }
+
+  @Output() ratingClicked: EventEmitter<string> =
+  new EventEmitter<string>();
+
+  ngOnChanges(): void {
+    // Convert x out of 5 starts
+    // to y out of 86px width
+    this.starWidth = this.rating * 93 / 10;
   }
 
   ngOnDestroy() {

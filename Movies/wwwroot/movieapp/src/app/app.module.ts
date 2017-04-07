@@ -12,6 +12,8 @@ import { DetailComponent } from './detail-component/detail.component'
 import {DataService} from './services/data.service';
 import {MovieFilterPipe} from './pipes/movie-filter.pipe';
 
+import { DirectivesModule } from './directives/directives.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,8 @@ import {MovieFilterPipe} from './pipes/movie-filter.pipe';
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    DirectivesModule
   ],
   providers: [
     DataService,

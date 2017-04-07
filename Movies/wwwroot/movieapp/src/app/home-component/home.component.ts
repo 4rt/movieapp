@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   movies: Movie[];
   categories: Category[];
   errorMessage: string;
-  selection = [];
+  selection:string[] = [];
 
   private sub: Subscription;
 
@@ -29,7 +29,6 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.sub = this._route.params.subscribe(
       params => {
-        //let id = +params['id'];
         this.getMovies();
         this.getCategories();
       });
@@ -49,7 +48,7 @@ export class HomeComponent implements OnInit {
 
   toggleSelection(category) {
     let idx = this.selection.indexOf(category);
-    console.log(this.selection)
+
     if (idx > -1) {
       this.selection.splice(idx, 1);
       if (this.selection.length) {
