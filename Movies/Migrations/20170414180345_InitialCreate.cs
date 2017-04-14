@@ -28,7 +28,7 @@ namespace Movies.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    CategoryId = table.Column<int>(nullable: false),
+                    CategoryId = table.Column<int>(nullable: true),
                     Plot = table.Column<string>(nullable: true),
                     Poster = table.Column<string>(nullable: true),
                     Rating = table.Column<double>(nullable: false),
@@ -43,7 +43,7 @@ namespace Movies.Migrations
                         column: x => x.CategoryId,
                         principalTable: "Categories",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(

@@ -12,7 +12,7 @@ namespace Movies.Models
         public string Title { get; set; }
         public string Plot { get; set; }
         public virtual Category Category { get; set; }
-        public int CategoryId { get; set; }
+        public int? CategoryId { get; set; }
         public int Year { get; set; }
         public double Rating { get; set; }
         public string Poster { get; set; }

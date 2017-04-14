@@ -33,7 +33,7 @@ namespace Movies.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("CategoryId");
+                    b.Property<int?>("CategoryId");
 
                     b.Property<string>("Plot");
 
@@ -56,8 +56,7 @@ namespace Movies.Migrations
                 {
                     b.HasOne("Movies.Models.Category", "Category")
                         .WithMany("Movies")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("CategoryId");
                 });
         }
     }

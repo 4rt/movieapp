@@ -37,5 +37,13 @@ namespace Movies.Models
                 .Where(t => t.Id == Id)
                 .FirstOrDefault();
         }
+        public void AddMovie(Movie movie)
+        {
+            _context.Add(movie);
+        }
+        public async Task<bool> SaveChangesAsync()
+        {
+            return (await _context.SaveChangesAsync()) > 0;
+        }
     }
 }

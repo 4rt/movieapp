@@ -37,21 +37,8 @@ export class DetailComponent implements OnInit, OnDestroy {
       error => this.errorMessage = <any>error);
   }
 
-  @Output() ratingClicked: EventEmitter<string> =
-  new EventEmitter<string>();
-
-  ngOnChanges(): void {
-    // Convert x out of 5 starts
-    // to y out of 86px width
-    this.starWidth = this.rating * 93 / 10;
-  }
-
   ngOnDestroy() {
     this.sub.unsubscribe();
   }
-
-  /*onBack(): void {
-      this._router.navigate(['/home']);
-  }*/
 
 }

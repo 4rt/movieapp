@@ -11,7 +11,7 @@
 
       <div class="columns col-oneline">
             <div class="column col-4">
-                  <div class="bg-gray docs-block">
+                  <div class="bg-gray docs-block" *ngIf="movie.poster">
                         <img id="i" class="" [src]="movie.poster" [title]="movie.title">
                   </div>
             </div>
@@ -19,11 +19,11 @@
                   <div class="bg-gray docs-block">
                         <h1 class="giant fat">{{movie.title}}</h1>
                         <star-rating [rating]='movie.rating'></star-rating>
-                        <blockquote>
+                        <blockquote *ngIf="movie.plot">
                               <p>{{movie.plot}}</p>
                         </blockquote>
                         <p><strong>Rating: </strong>{{movie.rating}}/10</p>
-                        <p><strong>Genre: </strong>{{movie.category.name}}</p>
+                        <p *ngIf="movie.category"><strong>Genre: </strong>{{movie.category.name}}</p>
                         <p><strong>Year: </strong>{{movie.year}} </p>
                   </div>
             </div>

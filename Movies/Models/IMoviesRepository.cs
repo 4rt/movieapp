@@ -10,5 +10,7 @@ namespace Movies.Models
         IEnumerable<Movie> GetAllMovies();
         IEnumerable<Category> GetAllCategories();
         Movie GetMovie(int Id);
+        void AddMovie(Movie movie);
+        Task<bool> SaveChangesAsync();
     }
 }

@@ -1,0 +1,47 @@
+<div class="container grid-960">
+
+    <ul class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a [routerLink]="['']">Home</a>
+        </li>
+        <li class="breadcrumb-item">
+            add new movie
+        </li>
+    </ul>
+
+    <div class="columns col-oneline">
+        <div class="column col-12 col-xs-12">
+            <form class="column col-6 centered" novalidate (ngSubmit)="saveMovie()" [formGroup]="movieForm">
+                <div class="form-group">
+                    <label class="form-label" for="movieTitle">Title</label>
+                    <input class="form-input" id="movieTitle" type="text" placeholder="title" formControlName="Title" />
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="moviePlot">Plot</label>
+                    <textarea class="form-input" id="moviePlot" placeholder="description" rows="3" formControlName="Plot"></textarea>
+                </div>
+                <div class="form-group">
+                <select class="form-select" *ngIf="categories" formControlName="CategoryId">
+                    <option *ngFor="let category of categories" [ngValue]="category.id">{{category.name}}</option>
+                </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="movieYear">Year</label>
+                    <input class="form-input" id="movieYear" type="text" placeholder="year" formControlName="Year" />
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="movieRating">Rating</label>
+                    <input class="form-input" id="movieRating" type="number" placeholder="rating" formControlName="Rating" />
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="moviePoster">Poster</label>
+                    <input class="form-input" id="moviePoster" type="url" placeholder="rating" formControlName="Poster" />
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>

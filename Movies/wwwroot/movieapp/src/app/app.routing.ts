@@ -1,10 +1,12 @@
 import { Routes } from '@angular/router';
 
 import { HomeComponent } from './home-component/home.component'
-import {DetailComponent } from './detail-component/detail.component'
+import { DetailComponent } from './detail-component/detail.component'
+import { CreateComponent } from './create-component/create.component'
 
 export const appRoutes: Routes = [
     { path: 'home', component: HomeComponent },
+    { path: 'create', component: CreateComponent },
     { path: 'detail/:id', component: DetailComponent },
     /*{ path: 'register', component: RegisterUserComponent },
     { path: 'authenticated', component: AuthenticatedUserComponent, canActivate: [AuthGuard],

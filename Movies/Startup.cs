@@ -13,6 +13,7 @@ using Movies.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Cors.Infrastructure;
 using AutoMapper;
+using Movies.ViewModels;
 
 namespace Movies
 {
@@ -56,9 +57,16 @@ namespace Movies
                     dest => dest.Counter,
                     opt => opt.MapFrom(src => src.Movies.Count)
                 );
-                conf.CreateMap<Movie, MovieDto>();
+                //conf.CreateMap<Movie, MovieDto>();
+                //conf.CreateMap<MovieDto, Movie>()
+                //.ForMember(dest => dest.Category,opt => opt.Ignore());
+
+                conf.CreateMap<Movie, MovieDto>().ReverseMap()
+                .ForMember(dest => dest.Category, opt => opt.Ignore());
+                //conf.CreateMap<MovieViewModel, Movie>().ReverseMap();
             });
 
+            cfg.AssertConfigurationIsValid();
             var mapper = cfg.CreateMapper();
 
             var corsBuilder = new CorsPolicyBuilder();

@@ -8,7 +8,7 @@ using Movies.Models;
 namespace Movies.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20170403102248_InitialCreate")]
+    [Migration("20170414180345_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -34,7 +34,7 @@ namespace Movies.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("CategoryId");
+                    b.Property<int?>("CategoryId");
 
                     b.Property<string>("Plot");
 
@@ -57,8 +57,7 @@ namespace Movies.Migrations
                 {
                     b.HasOne("Movies.Models.Category", "Category")
                         .WithMany("Movies")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("CategoryId");
                 });
         }
     }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
@@ -40,14 +40,29 @@ export class DataService {
             .catch(this.handleError);
     }
 
+    saveMovie(movie: Movie): Observable<Movie> {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+
+        //if (product.id === 0) {
+        return this.addMovie(movie, options);
+        //}
+        //return this.updateProduct(product, options);
+    }
+
+    addMovie(movie: Movie, options: RequestOptions): Observable<Movie> {
+
+        return this._http.post(this._apiUrl, movie, options)
+            .map(this.extractData)
+            .catch(this.handleError);
+    }
+
     private extractData(res: Response) {
         let body = res.json();
         return body;
     }
 
     private handleError(error: Response) {
-        // in a real world app, we may send the server to some remote logging infrastructure
-        // instead of just logging it to the console
         console.error(error);
         return Observable.throw(error.json().error || 'Server error');
     }
