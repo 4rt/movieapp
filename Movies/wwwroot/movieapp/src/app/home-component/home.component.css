@@ -13,4 +13,5 @@ aside{
     flex-basis: 300px;
     max-width: 300px;
     border-radius: 8px;
+    text-align: center;
 }

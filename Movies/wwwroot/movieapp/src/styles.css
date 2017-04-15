@@ -12,6 +12,8 @@ img{max-width: 100%}
 
 .poster{border-radius: 8px}
 
+.undecorate{text-decoration: none}
+
 .btn.btn-link.active, .btn.btn-link:active, .btn.btn-link:focus, .btn.btn-link:hover {
     color: orangered;
 }

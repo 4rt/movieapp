@@ -10,7 +10,7 @@ namespace Movies.Models
     {
         public int Id { get; set; }
         [Required]
-        [StringLength(100, MinimumLength = 5)]
+        [StringLength(100, MinimumLength = 2)]
         public string Title { get; set; }
         public string Plot { get; set; }
         public virtual CategoryDto Category { get; set; }

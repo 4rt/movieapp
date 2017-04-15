@@ -29,7 +29,9 @@
             <div class="columns movie-list">
                 <div *ngFor='let movie of movies | movieFilter:listFilter' class="column movie-item">
                     <a [routerLink]="['/detail', movie.id]">
-                        <img class="poster" [src]='movie.poster' [title]='movie.title'>
+                        <img *ngIf="movie.poster" class="poster" [src]='movie.poster' [title]='movie.title'>
+                        <img *ngIf="!movie.poster" class="poster" src='assets/img/noimage.jpg' [title]='movie.title'>
+                        <h3 *ngIf="!movie.poster" class="undecorate">{{movie.title}}</h3>
                     </a>
                 </div>
             </div>
