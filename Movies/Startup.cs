@@ -61,7 +61,7 @@ namespace Movies
                 //conf.CreateMap<MovieDto, Movie>()
                 //.ForMember(dest => dest.Category,opt => opt.Ignore());
 
-                conf.CreateMap<Movie, MovieDto>().ReverseMap()
+                conf.CreateMap<Movie, MovieDto>().ForMember(dest => dest.Poster, opt => opt.MapFrom(src => string.IsNullOrEmpty(src.Poster) ? "assets/img/noimage.jpg" : src.Poster )).ReverseMap()
                 .ForMember(dest => dest.Category, opt => opt.Ignore());
                 //conf.CreateMap<MovieViewModel, Movie>().ReverseMap();
             });

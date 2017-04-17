@@ -1,7 +1,7 @@
 Movies/wwwroot/movieapp/node_modules/
 
-Movies/[Bb]in/
-Movies/[Oo]bj/
+Movies/[Bb]in/*
+Movies/[Oo]bj/*
 
 # compiled output
 Movies/wwwroot/movieapp/dist
