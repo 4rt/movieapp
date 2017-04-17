@@ -12,13 +12,29 @@
     <div class="columns col-oneline">
         <div class="column col-12 col-xs-12">
             <form class="column col-6 centered" novalidate (ngSubmit)="saveMovie()" [formGroup]="movieForm">
-                <div class="form-group">
-                    <label class="form-label" for="movieTitle">Title</label>
+                <div class="form-group"
+                     [ngClass]="{'has-danger': (movieForm.get('Title').touched || movieForm.get('Title').dirty) && movieForm.get('Title').errors,
+                                 'has-success': (movieForm.get('Title').touched || movieForm.get('Title').dirty) && movieForm.get('Title').valid }">
+                    <label class="form-label" for="movieTitle">Title *</label>
                     <input class="form-input" id="movieTitle" type="text" placeholder="title" formControlName="Title" />
+                    <p *ngIf="(movieForm.get('Title').touched || movieForm.get('Title').dirty) && movieForm.get('Title').errors" class="form-input-hint">
+                        <span *ngIf="movieForm.get('Title').errors.required">This field is required</span>
+                        <span *ngIf="movieForm.get('Title').errors.pattern">Please enter valid description</span>
+                        <span *ngIf="movieForm.get('Title').errors.minlength">Min length 3 characters</span>
+                        <span *ngIf="movieForm.get('Title').errors.maxlength">Max length 100 characters</span>
+                    </p>
                 </div>
-                <div class="form-group">
-                    <label class="form-label" for="moviePlot">Plot</label>
+                <div class="form-group" 
+                     [ngClass]="{'has-danger': (movieForm.get('Plot').touched || movieForm.get('Plot').dirty) && movieForm.get('Plot').errors,
+                                 'has-success': (movieForm.get('Plot').touched || movieForm.get('Plot').dirty) && movieForm.get('Plot').valid }">
+                    <label class="form-label" for="moviePlot">Plot *</label>
                     <textarea class="form-input" id="moviePlot" placeholder="description" rows="3" formControlName="Plot"></textarea>
+                    <p *ngIf="(movieForm.get('Plot').touched || movieForm.get('Plot').dirty) && movieForm.get('Plot').errors" class="form-input-hint">
+                        <span *ngIf="movieForm.get('Plot').errors.required">This field is required</span>
+                        <span *ngIf="movieForm.get('Plot').errors.pattern">Please enter valid description</span>
+                        <span *ngIf="movieForm.get('Plot').errors.minlength">Min length 3 characters</span>
+                        <span *ngIf="movieForm.get('Plot').errors.maxlength">Max length 100 characters</span>
+                    </p>
                 </div>
                 <div class="form-group">
                 <select class="form-select" *ngIf="categories" formControlName="CategoryId">
@@ -29,16 +45,21 @@
                     <label class="form-label" for="movieYear">Year</label>
                     <input class="form-input" id="movieYear" type="text" placeholder="year" formControlName="Year" />
                 </div>
-                <div class="form-group">
+                <div class="form-group" 
+                     [ngClass]="{'has-danger': (movieForm.get('Rating').touched || movieForm.get('Rating').dirty) && movieForm.get('Rating').errors,
+                                 'has-success': (movieForm.get('Rating').touched || movieForm.get('Rating').dirty) && movieForm.get('Rating').valid }">
                     <label class="form-label" for="movieRating">Rating</label>
-                    <input class="form-input" id="movieRating" type="number" placeholder="rating" formControlName="Rating" />
+                    <input class="form-input" id="movieRating" type="text" placeholder="0,0" formControlName="Rating" />
+                    <p *ngIf="(movieForm.get('Rating').touched || movieForm.get('Rating').dirty) && movieForm.get('Rating').errors" class="form-input-hint">
+                        <span *ngIf="movieForm.get('Rating').errors.pattern">Please enter valid rating</span>
+                    </p>
                 </div>
                 <div class="form-group">
                     <label class="form-label" for="moviePoster">Poster</label>
                     <input class="form-input" id="moviePoster" type="url" placeholder="rating" formControlName="Poster" />
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-primary" type="submit">Submit</button>
+                    <button [disabled]="!movieForm.valid" class="btn btn-primary" type="submit">Submit</button>
                 </div>
             </form>
         </div>

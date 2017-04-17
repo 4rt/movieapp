@@ -40,30 +40,14 @@ namespace Movies
         {
             services.AddSingleton(_config);
 
-            //Register and Define a Policy
-            /*services.AddCors(options =>
-            {
-                options.AddPolicy("CorsPolicy",
-                    builder => builder                  
-                    .AllowAnyHeader()
-                    .AllowAnyMethod()
-                    .AllowAnyOrigin()
-                    .AllowCredentials());
-            });*/
-
             var cfg = new MapperConfiguration(conf =>
             {
                 conf.CreateMap<Category, CategoryDto>().ForMember(
                     dest => dest.Counter,
                     opt => opt.MapFrom(src => src.Movies.Count)
                 );
-                //conf.CreateMap<Movie, MovieDto>();
-                //conf.CreateMap<MovieDto, Movie>()
-                //.ForMember(dest => dest.Category,opt => opt.Ignore());
-
                 conf.CreateMap<Movie, MovieDto>().ForMember(dest => dest.Poster, opt => opt.MapFrom(src => string.IsNullOrEmpty(src.Poster) ? "assets/img/noimage.jpg" : src.Poster )).ReverseMap()
                 .ForMember(dest => dest.Category, opt => opt.Ignore());
-                //conf.CreateMap<MovieViewModel, Movie>().ReverseMap();
             });
 
             cfg.AssertConfigurationIsValid();
@@ -107,9 +91,6 @@ namespace Movies
             seedData.SeedData().Wait();
 
             app.UseDeveloperExceptionPage();
-
-            //Apply the Policy
-            //app.UseCors("CorsPolicy");
         }
     }
 }

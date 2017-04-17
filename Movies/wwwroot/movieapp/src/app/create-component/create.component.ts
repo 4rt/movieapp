@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit, OnDestroy, ViewChildren, ElementRef } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, FormControlName } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, FormControlName, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import 'rxjs/add/operator/debounceTime';
@@ -38,11 +38,11 @@ export class CreateComponent implements OnInit, OnDestroy {
                 this.getCategories();
             });
         this.movieForm = this._fb.group({
-            Title: '',
-            Plot: '',
+            Title: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
+            Plot: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9-_\.\, \s]+$'), Validators.minLength(2), Validators.maxLength(200)]],
             CategoryId: [1],
             Year: '',
-            Rating: '',
+            Rating: ['', Validators.pattern('[0-9]\.[0-9]')],//\d+(,\d{1})?
             Poster: ''
         });
     }
